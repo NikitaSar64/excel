@@ -9,11 +9,15 @@ export class Excel {
   getRoot() {
     const root = $.createDomElem("div", "excel");
 
-    this.components.forEach((Component) => {
-      const component = new Component();
+    this.components = this.components.map((Component) => {
       const componentWrapper = $.createDomElem("div", Component.className);
+      const component = new Component(componentWrapper);
+      // if (component.name) {
+      //   window["c" + component.name] = component;
+      // }
       componentWrapper.html(component.toHTML());
       root.append(componentWrapper);
+      return component;
     });
 
     return root;
@@ -21,5 +25,6 @@ export class Excel {
 
   render() {
     this.nodeElem.append(this.getRoot());
+    this.components.forEach((component) => component.init());
   }
 }
