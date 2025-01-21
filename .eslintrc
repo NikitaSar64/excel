@@ -8,6 +8,10 @@
   "extends": ["eslint:recommended", "google"],
   "rules": {
     "require-jsdoc": "off",
-    "quotes": "off"
+    "quotes": "off",
+    "object-curly-spacing": "off",
+    "operator-linebreak": "off",
+    "no-debugger": "off",
+    "indent": "off"
   }
 }
